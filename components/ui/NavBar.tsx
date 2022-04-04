@@ -3,6 +3,8 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { Text, Spacer, useTheme, Link } from "@nextui-org/react";
 
+const random = parseInt(`${Math.random() * 100}`, 10);
+
 export const NavBar = () => {
   const { theme } = useTheme();
   return (
@@ -24,7 +26,7 @@ export const NavBar = () => {
             justifyContent: "start",
           }}>
           <Image
-            src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png'
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${random}.png`}
             alt='Pokemon'
             width={80}
             height={80}
