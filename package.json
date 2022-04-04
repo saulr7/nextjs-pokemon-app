@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^1.0.6-beta.5",
+    "@types/canvas-confetti": "^1.4.2",
+    "axios": "^0.26.1",
+    "canvas-confetti": "^1.5.1",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
