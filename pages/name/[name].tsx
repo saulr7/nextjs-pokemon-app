@@ -16,10 +16,16 @@ import { existsInFavorites, getPokemonInfo, toggleFavorite } from "../../utils";
 type IProps = {
   pokemon: Pokemon;
 };
+
+const isScreenXS =
+  typeof window === "undefined" ? false : window.screen.width < 500;
+
 const NamePage: NextPage<IProps> = ({ pokemon }) => {
   const [isInFavorites, setIsInFavorites] = useState(
     existsInFavorites(pokemon.id)
   );
+
+  const layoutXS = isScreenXS ? "block" : "flex";
 
   const onToggleSave = () => {
     toggleFavorite(pokemon.id);
@@ -53,17 +59,18 @@ const NamePage: NextPage<IProps> = ({ pokemon }) => {
             </Card.Body>
           </Card>
         </Grid>
-        <Grid xs={12} sm={8}>
+        <Grid xs={12} sm={12} md={8}>
           <Card>
             <Card.Header
-              css={{ display: "flex", justifyContent: "space-between" }}>
+              css={{ display: layoutXS, justifyContent: "space-between" }}>
               <Text h1 transform='capitalize'>
                 {pokemon.name}
               </Text>
               <Button
                 color='gradient'
                 ghost={!isInFavorites}
-                onClick={onToggleSave}>
+                onClick={onToggleSave}
+                icon=''>
                 {isInFavorites ? "Remove" : "Save"}
               </Button>
             </Card.Header>
